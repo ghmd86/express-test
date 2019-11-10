@@ -6,7 +6,12 @@ app.listen(port, ()=> {
 });
 
 app.use(express.static('public'));
+
 app.get('/', (req, res) => {
     res.statusMessage = 'MEssage from express';
-    res.send('Message from express');
-})
+    res.send('Message from express  ');
+});
+
+app.route('/subroute').get( (req,res )=>{
+res.send('Sub route');
+});
