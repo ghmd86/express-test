@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3010;
-app.listen(port, ()=> {
+app.listen(port, () => {
     console.log('hello');
 });
 
@@ -12,6 +12,17 @@ app.get('/', (req, res) => {
     res.send('Message from express  ');
 });
 
-app.route('/subroute').get( (req,res )=>{
-res.send('Sub route');
+const nextFunction = (req, res, next) => {
+    console.log('nextFunction', req.query.check);
+
+    if (req.query.check === 'reqwithparams') {
+        return res.send('Middle ware');
+    }
+    next();
+}
+app.use(nextFunction);
+
+app.route('/subroute').get((req, res, next) => {
+    console.log('subroute');
+    res.send('after the middle ware sub route');
 });
