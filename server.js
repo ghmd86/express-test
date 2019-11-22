@@ -26,3 +26,8 @@ app.route('/subroute').get((req, res, next) => {
     console.log('subroute');
     res.send('after the middle ware sub route');
 });
+
+app.route('/subroutetwo').get((req, res, next) => {
+    console.log('subroute');
+    res.send('subroutetwo');
+});
