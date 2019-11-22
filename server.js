@@ -31,3 +31,7 @@ app.route('/subroutetwo').get((req, res, next) => {
     console.log('subroute');
     res.send('subroutetwo');
 });
+
+app.route('/subrouteThree').get((req, res, next) => {
+    res.send('subrouteThree');
+});
